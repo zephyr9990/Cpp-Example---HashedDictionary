@@ -62,14 +62,14 @@ private:
 ///////////////////////////////////////////////////////////////////////////////
 
 template<class KeyType, class ItemType>
-inline Entry<KeyType, ItemType>::Entry()
+Entry<KeyType, ItemType>::Entry()
 {
 	searchKey = "";
 	item = "";
 }// end constructor
 
 template<class KeyType, class ItemType>
-inline Entry<KeyType, ItemType>::Entry(KeyType searchKey, ItemType newEntry)
+Entry<KeyType, ItemType>::Entry(KeyType searchKey, ItemType newEntry)
 {
 	searchKey = Key;
 	item = newEntry;
