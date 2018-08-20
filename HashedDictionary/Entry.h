@@ -1,4 +1,4 @@
-// Entry.h : Defines an entry in the dictionary
+// Entry.h : Defines an Entry
 
 /************************************************************
 *                                                          *
