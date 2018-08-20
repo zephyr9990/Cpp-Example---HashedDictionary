@@ -1,4 +1,4 @@
-// Entry.h : Defines a HashedEntry
+// HashedEntry.h : Defines a HashedEntry
 
 /************************************************************
 *                                                          *
