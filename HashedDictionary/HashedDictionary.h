@@ -285,7 +285,7 @@ int HashedDictionary<KeyType, ItemType>::getHashIndex(const KeyType& searchKey) 
 			{
 				letter = toupper(searchKey[i]);
 				letterValue = static_cast<int>(letter) - 64;
-				hashIndex = ((hashIndex * 32) + letterValue % hashTableSize;
+				hashIndex = ((hashIndex * 32) + letterValue) % hashTableSize;
 			}
 		}
 	}
