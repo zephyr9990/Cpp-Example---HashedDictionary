@@ -61,7 +61,7 @@ public:
 	/**
 		Checks to see whether a given search key occurs within the dictionary.
 		@post The boolean value is returned and the data remains unchanged.
-		@param searchKeyThe search key to be searched.
+		@param searchKey The search key to be searched.
 		@return True if the item is contained within the dictionary,
 		otherwise false0.
 	*/
