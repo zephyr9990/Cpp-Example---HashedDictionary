@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Entry.h" />
+    <ClInclude Include="HashedDictionary.h" />
     <ClInclude Include="HashedDictionaryInterface.h" />
     <ClInclude Include="HashedEntry.h" />
     <ClInclude Include="NotFoundException.h" />
