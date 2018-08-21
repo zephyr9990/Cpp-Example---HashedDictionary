@@ -27,14 +27,14 @@ public:
 	HashedEntry(ItemType newEntry, KeyType searchKey,
 		HashedEntry<KeyType, ItemType>* nextEntryPtr);
 
-	/*
+	/**
 		Sets the pointer to the passed value.
 		@param nextEntryPtr The pointer to the next entry.
 		@post nextPtr will point to the same address as nextEntryPointer.
 	*/
 	void setNext(HashedEntry<KeyType, ItemType>* nextEntryPtr);
 
-	/*
+	/**
 		Function to get a pointer to the next entry.
 		@return The pointer to the next entry.
 	*/
