@@ -76,25 +76,25 @@ Entry<KeyType, ItemType>::Entry(KeyType searchKey, ItemType newEntry)
 }// end paramaterized constructor
 
 template<class KeyType, class ItemType>
-inline ItemType Entry<KeyType, ItemType>::getItem() const
+ItemType Entry<KeyType, ItemType>::getItem() const
 {
 	return item;
 }// end getItem
 
 template<class KeyType, class ItemType>
-inline KeyType Entry<KeyType, ItemType>::getKey() const
+KeyType Entry<KeyType, ItemType>::getKey() const
 {
 	return searchKey;
 }// end getKey
 
 template<class KeyType, class ItemType>
-inline void Entry<KeyType, ItemType>::setItem(const ItemType & newEntry)
+void Entry<KeyType, ItemType>::setItem(const ItemType & newEntry)
 {
 	item = newEntry;
 }// end setItem
 
 template<class KeyType, class ItemType>
-inline void Entry<KeyType, ItemType>::setKey(const KeyType & searchKey)
+void Entry<KeyType, ItemType>::setKey(const KeyType & searchKey)
 {
 	this.searchKey = searchKey;
 }// end setKey
