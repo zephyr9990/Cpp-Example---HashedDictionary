@@ -71,7 +71,7 @@ Entry<KeyType, ItemType>::Entry()
 template<class KeyType, class ItemType>
 Entry<KeyType, ItemType>::Entry(KeyType searchKey, ItemType newEntry)
 {
-	searchKey = Key;
+	this->searchKey = searchKey;
 	item = newEntry;
 }// end paramaterized constructor
 
@@ -96,7 +96,7 @@ void Entry<KeyType, ItemType>::setItem(const ItemType & newEntry)
 template<class KeyType, class ItemType>
 void Entry<KeyType, ItemType>::setKey(const KeyType & searchKey)
 {
-	this.searchKey = searchKey;
+	this->searchKey = searchKey;
 }// end setKey
 
  ///////////////////////////////////////////////////////////////////////////////
