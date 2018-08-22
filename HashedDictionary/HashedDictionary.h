@@ -109,7 +109,7 @@ bool HashedDictionary<KeyType, ItemType>::add(const KeyType & searchKey,
 	if (!contains(searchKey))
 	{
 		HashedEntry<KeyType, ItemType> *entryToAddPtr =
-			new HashedEntry<KeyType, ItemType>(newItem, searchKey);
+			new HashedEntry<KeyType, ItemType>(searchKey, newItem);
 		int hashIndex = getHashIndex(searchKey);
 
 		// Add the entry to the chain at hashIndex
