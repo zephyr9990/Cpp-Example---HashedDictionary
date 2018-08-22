@@ -274,6 +274,8 @@ int HashedDictionary<KeyType, ItemType>::getHashIndex(const KeyType& searchKey) 
 	int hashIndex = 0;
 	int searchKeyLength = searchKey.length();
 
+	char letter = ' ';
+	int letterValue = 0;
 	// if key is comprised of more than one letter, use Horner's rule
 	// to find hash value.
 	if (searchKeyLength > 1)
