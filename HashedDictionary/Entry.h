@@ -71,7 +71,7 @@ Entry<KeyType, ItemType>::Entry()
 template<class KeyType, class ItemType>
 Entry<KeyType, ItemType>::Entry(KeyType searchKey, ItemType newEntry)
 {
-	searchKey = Key;
+	this.searchKey = searchKey;
 	item = newEntry;
 }// end paramaterized constructor
 
