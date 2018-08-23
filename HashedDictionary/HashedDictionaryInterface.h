@@ -46,13 +46,14 @@ public:
 
 	/**
 		Retrieves an item with a given saerch key from a dictionary.
+		@pre The searchKey must be within the dictionary.
 		@post If the retrieval was successful, the item is returned.
 		@param searchKey The search key of the item to be retrieved.
 		@return The item associated with the search key.
 		@throw NotFoundException if the item does not exist.
 	*/
 	virtual ItemType getItem(const KeyType& searchKey) const
-		throw(NotFoundException) = 0;
+		throw(...) = 0;
 
 	/**
 		Checks to see whether a given search key occurs within the dictionary.
@@ -62,4 +63,13 @@ public:
 			otherwise false0.
 	*/
 	virtual bool contains(const KeyType& searchKey) const = 0;
+
+	/**
+		Checks to see that searchKey and dataItem are valid.
+		@param searchKey The searchKey to check.
+		@param dataItem The dataItem to check.
+		@return True if both are valid, or false if not.
+	*/
+	virtual bool isValid(
+		const KeyType& searchKey, const ItemType& dataItem) const = 0;
 };

@@ -26,6 +26,7 @@ class HashedDictionary : public HashedDictionaryInterface<KeyType, ItemType>
 {
 public:
 	HashedDictionary();
+	~HashedDictionary();
 
 	/**
 		Inserts an item into the dictionary according to the item's search key.
@@ -50,13 +51,14 @@ public:
 
 	/**
 		Retrieves an item with a given saerch key from a dictionary.
+		@pre The searchKey must be within the dictionary.
 		@post If the retrieval was successful, the item is returned.
 		@param searchKey The search key of the item to be retrieved.
 		@return The item associated with the search key.
 		@throw NotFoundException if the item does not exist.
 	*/
 	ItemType getItem(const KeyType& searchKey) const
-		throw(NotFoundException);
+		throw(...);
 
 	/**
 		Checks to see whether a given search key occurs within the dictionary.
@@ -66,6 +68,14 @@ public:
 		otherwise false0.
 	*/
 	bool contains(const KeyType& searchKey) const;
+
+	/**
+	Checks to see that searchKey and dataItem are valid.
+	@param searchKey The searchKey to check.
+	@param dataItem The dataItem to check.
+	@return True if both are valid, or false if not.
+	*/
+	bool isValid(const KeyType& searchKey, const ItemType& dataItem) const;
 
 private:
 	/*
@@ -101,6 +111,23 @@ HashedDictionary<KeyType, ItemType>::HashedDictionary()
 		hashTable[i] = nullptr;
 	}
 }// end constructor
+
+template<class KeyType, class ItemType>
+HashedDictionary<KeyType, ItemType>::~HashedDictionary()
+{
+	HashedEntry<KeyType, ItemType>* nodeToDelete;
+	for (int i = 0; i < DEFAULT_SIZE; i++)
+	{
+		while (hashTable[i] != nullptr)
+		{
+			nodeToDelete = hashTable[i];
+			hashTable[i] = hashTable[i]->getNext();
+
+			delete nodeToDelete;
+			nodeToDelete = nullptr;
+		}
+	}
+}
 
 template<class KeyType, class ItemType>
 bool HashedDictionary<KeyType, ItemType>::add(const KeyType & searchKey,
@@ -184,7 +211,7 @@ bool HashedDictionary<KeyType, ItemType>::remove(const KeyType & searchKey)
 
 template<class KeyType, class ItemType>
 ItemType HashedDictionary<KeyType, ItemType>::getItem(const KeyType & searchKey)
-	const throw(NotFoundException)
+	const throw(...)
 {
 	bool itemFound = false;
 	int hashIndex = getHashIndex(searchKey);
@@ -226,7 +253,8 @@ ItemType HashedDictionary<KeyType, ItemType>::getItem(const KeyType & searchKey)
 }// end getItem
 
 template<class KeyType, class ItemType>
-bool HashedDictionary<KeyType, ItemType>::contains(const KeyType & searchKey) const
+bool HashedDictionary<KeyType, ItemType>::contains(
+	const KeyType & searchKey) const
 {
 	bool itemFound = false;
 	int hashIndex = getHashIndex(searchKey);
@@ -259,6 +287,20 @@ bool HashedDictionary<KeyType, ItemType>::contains(const KeyType & searchKey) co
 	return itemFound;
 }// end contains
 
+template<class KeyType, class ItemType>
+bool HashedDictionary<KeyType, ItemType>::isValid(
+	const KeyType& searchKey, const ItemType& dataItem) const
+{
+	if (searchKey.length() == 0 || searchKey[0] == ' '
+		|| dataItem.length() == 0 || dataItem[0] == ' ')
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
 ///////////////////////////////////////////////////////////////////////////////
 // PUBLIC METHODS END HERE
 ///////////////////////////////////////////////////////////////////////////////
@@ -267,9 +309,9 @@ bool HashedDictionary<KeyType, ItemType>::contains(const KeyType & searchKey) co
 // PRIVATE METHODS START HERE
 ///////////////////////////////////////////////////////////////////////////////
 
-
 template<class KeyType, class ItemType>
-int HashedDictionary<KeyType, ItemType>::getHashIndex(const KeyType& searchKey) const
+int HashedDictionary<KeyType, ItemType>::getHashIndex(
+	const KeyType& searchKey) const
 {
 	int hashIndex = 0;
 	int searchKeyLength = searchKey.length();
