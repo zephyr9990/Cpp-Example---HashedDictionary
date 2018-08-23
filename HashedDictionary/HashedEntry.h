@@ -74,7 +74,8 @@ HashedEntry<KeyType, ItemType>::HashedEntry(ItemType newEntry, KeyType searchKey
 } // end paramterized constructor #2
 
 template<class KeyType, class ItemType>
-void HashedEntry<KeyType, ItemType>::setNext(HashedEntry<KeyType, ItemType>* nextEntryPtr)
+void HashedEntry<KeyType, ItemType>::setNext(
+	HashedEntry<KeyType, ItemType>* nextEntryPtr)
 {
 	nextPtr = nextEntryPtr;
 }// end setNext
