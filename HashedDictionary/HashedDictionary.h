@@ -91,7 +91,7 @@ private:
 	int itemCount;
 	int hashTableSize;
 	static const int DEFAULT_SIZE = 101;
-	HashedEntry<KeyType, ItemType>* hashTable[DEFAULT_SIZE];
+	HashedEntry<KeyType, ItemType>** hashTable;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -107,7 +107,8 @@ HashedDictionary<KeyType, ItemType>::HashedDictionary()
 {
 	itemCount = 0;
 	hashTableSize = DEFAULT_SIZE;
-
+	hashTable = new HashedEntry<KeyType, ItemType> *[DEFAULT_SIZE];
+	
 	for (int i = 0; i < DEFAULT_SIZE; i++)
 	{
 		hashTable[i] = nullptr;
