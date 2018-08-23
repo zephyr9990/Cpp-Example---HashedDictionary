@@ -118,6 +118,7 @@ HashedDictionary<KeyType, ItemType>::~HashedDictionary()
 	HashedEntry<KeyType, ItemType>* nodeToDelete;
 	for (int i = 0; i < DEFAULT_SIZE; i++)
 	{
+		// keep deleting first node until nullptr is reached.
 		while (hashTable[i] != nullptr)
 		{
 			nodeToDelete = hashTable[i];
