@@ -70,6 +70,6 @@ public:
 		@param dataItem The dataItem to check.
 		@return True if both are valid, or false if not.
 	*/
-	virtual bool isValid(
+	virtual bool isValidEntry(
 		const KeyType& searchKey, const ItemType& dataItem) const = 0;
 };

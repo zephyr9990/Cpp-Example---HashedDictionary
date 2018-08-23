@@ -75,7 +75,7 @@ public:
 	@param dataItem The dataItem to check.
 	@return True if both are valid, or false if not.
 	*/
-	bool isValid(const KeyType& searchKey, const ItemType& dataItem) const;
+	bool isValidEntry(const KeyType& searchKey, const ItemType& dataItem) const;
 
 private:
 	/*
@@ -288,7 +288,7 @@ bool HashedDictionary<KeyType, ItemType>::contains(
 }// end contains
 
 template<class KeyType, class ItemType>
-bool HashedDictionary<KeyType, ItemType>::isValid(
+bool HashedDictionary<KeyType, ItemType>::isValidEntry(
 	const KeyType& searchKey, const ItemType& dataItem) const
 {
 	if (searchKey.length() == 0 || searchKey[0] == ' '
