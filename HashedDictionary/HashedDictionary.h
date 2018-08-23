@@ -9,11 +9,13 @@
 *  Description:   Creates a Hashed Dictionary using        *
 *				  seperate chaining                        *
 *  Input:         User input strings                       *
-*  Output:        Displays search key insert index, and    *
-* 				  item associated with search key          *
+*  Output:        Displays search key and item             *
+*                 associated with search key.              *
 *  Created:       11/26/2017                               *
+*  Modified:      08/22/2018                               *
 *                                                          *
 ***********************************************************/
+
 
 #pragma once
 
