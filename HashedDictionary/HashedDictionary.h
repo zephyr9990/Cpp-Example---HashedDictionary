@@ -27,7 +27,7 @@ template<class KeyType, class ItemType>
 class HashedDictionary : public HashedDictionaryInterface<KeyType, ItemType>
 {
 public:
-	HashedDictionary();
+	HashedDictionary() noexcept;
 	~HashedDictionary();
 
 	/**
@@ -103,7 +103,7 @@ private:
 ///////////////////////////////////////////////////////////////////////////////
 
 template<class KeyType, class ItemType>
-HashedDictionary<KeyType, ItemType>::HashedDictionary()
+HashedDictionary<KeyType, ItemType>::HashedDictionary() noexcept
 {
 	itemCount = 0;
 	hashTableSize = DEFAULT_SIZE;
@@ -131,6 +131,8 @@ HashedDictionary<KeyType, ItemType>::~HashedDictionary()
 			nodeToDelete = nullptr;
 		}
 	}
+	delete[] hashTable;
+	hashTable = nullptr;
 }
 
 template<class KeyType, class ItemType>

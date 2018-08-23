@@ -25,5 +25,5 @@
 class NotFoundException : public std::logic_error
 {
 public:
-	NotFoundException(const std::string& message = "");
+	NotFoundException(const std::string& message = "") noexcept;
 };// end NotFoundException
