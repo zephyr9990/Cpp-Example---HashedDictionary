@@ -294,8 +294,9 @@ template<class KeyType, class ItemType>
 bool HashedDictionary<KeyType, ItemType>::isValidEntry(
 	const KeyType& searchKey, const ItemType& dataItem) const
 {
-	if (searchKey.length() == 0 || searchKey[0] == ' '
-		|| dataItem.length() == 0 || dataItem[0] == ' ')
+	unsigned int requiredLength = 1;
+	if (searchKey.length() < requiredLength || searchKey[0] == ' '
+		|| dataItem.length() < requiredLength || dataItem[0] == ' ')
 	{
 		return false;
 	}
